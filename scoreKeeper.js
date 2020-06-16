@@ -1,6 +1,6 @@
 var p1Score = 0;
 var p2Score = 0;
-var maxScore = 0;
+var maxScore = 1;
 var finish = false;
 
 var p1Button = document.querySelector("#p1");
@@ -39,7 +39,7 @@ resetButton.addEventListener("click", reset);
 function reset() {
     p1Score = 0;
     p2Score = 0;
-    maxScore = 0;
+    maxScore = 1;
     p1Display.textContent = p1Score;
     p2Display.textContent = p2Score;
     maxDisplay.textContent = maxScore;
@@ -51,6 +51,7 @@ function reset() {
 
 maxButton.addEventListener("change", function () {
     maxScore = Number(maxButton.value);
+    if (maxScore <= 0) maxScore = 1;
     maxDisplay.textContent = maxScore;
     p1Score = 0;
     p2Score = 0;
